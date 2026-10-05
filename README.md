@@ -69,6 +69,6 @@ Not done: checksums of on-disk files (upstream md5 covers the `.zst` only).
 Input: 2PV7 example from the 3.0.0 `examples/`.
 
 - `test/test.qsub` (no GPU or weights): 5/5 passed, plain bash and qsub job 7876253.
-- L40S inference on the installed module: job 7876254, exit 0, 119 s, top ranking score 0.910.
-- Data pipeline on the installed module: job 7876543, running.
+- Data pipeline on the installed module: job 7876543, exit 0, 33 min (8 cores), 4 PDB templates. `2PV7_data.json` identical (md5) to the earlier test copy's.
+- L40S inference on that output: job 7876544, exit 0, 123 s, top ranking score 0.910.
 - V100 inference: tested on a test copy with the same `.sif` and `run_alphafold.sh` (md5 matched).
