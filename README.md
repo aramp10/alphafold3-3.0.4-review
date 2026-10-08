@@ -100,7 +100,7 @@ Input: 2PV7 example from the 3.0.0 `examples/`.
 | Template search step | 12 s | 509 s | 473 s |
 | Whole data pipeline (chain A) | 1509 s | 2136 s | 1966 s |
 
-  Output `2PV7_data.json` identical (md5) in all three. The MSA step (1493–1627 s) doesn't read the PDB files; its spread is run-to-run variation. Decision: keep the unpacked directory.
+  Output `2PV7_data.json` identical (md5) in all three. The MSA step (1493–1627 s) doesn't read the PDB files; its spread is run-to-run variation. Decision: keep the unpacked directory (saves ~8 min in the template search step for this example).
 - L40S inference on the unpacked output: ranking score 0.91 (same as 2026-10-05).
 
 **Still to do before publishing**
