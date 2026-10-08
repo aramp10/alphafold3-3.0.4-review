@@ -91,9 +91,20 @@ Input: 2PV7 example from the 3.0.0 `examples/`.
 
 `test/test.qsub` after the edits: 5/5 passed (plain bash).
 
+**Test results (2026-10-08)**
+- `test/test.qsub` batch job: 5/5 passed.
+- Data pipeline, unpacked vs `.tar` (2PV7 example, 8 cores):
+
+| | Unpacked | `.tar` | `.tar` (2026-10-05) |
+|---|---|---|---|
+| Template search step | 12 s | 509 s | 473 s |
+| Whole data pipeline (chain A) | 1509 s | 2136 s | 1966 s |
+
+  Output `2PV7_data.json` identical (md5) in all three. The MSA step (1493–1627 s) doesn't read the PDB files; its spread is run-to-run variation. Decision: keep the unpacked directory.
+- L40S inference on the unpacked output: ranking score 0.91 (same as 2026-10-05).
+
 **Still to do before publishing**
-- Make the unpacked `mmcif_files` readable by all users (currently group-only).
-- Data pipeline timing: unpacked vs `.tar` (`.tar` baseline for the template search step: 472.83 s).
-- `test/test.qsub` as a batch job; inference on L40S, V100, H200 and RTXP6000 with the new wrapper.
+- Permissions fix on the unpacked `mmcif_files` (in progress).
+- Inference on H200 and RTXP6000 (queued), reusing the existing data pipeline output.
 
 **After publishing:** update the TechWeb AlphaFold3 page; point `module help` MODEL WEIGHTS to it.
