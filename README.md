@@ -102,9 +102,11 @@ Input: 2PV7 example from the 3.0.0 `examples/`.
 
   Output `2PV7_data.json` identical (md5) in all three. The MSA step (1493–1627 s) doesn't read the PDB files; its spread is run-to-run variation. Decision: keep the unpacked directory (saves ~8 min in the template search step for this example).
 - L40S inference on the unpacked output: ranking score 0.91 (same as 2026-10-05).
+- H200 inference on the existing data pipeline output: ranking score 0.91; inference 44 s (L40S: 85 s).
 
 **Still to do before publishing**
 - ~~Permissions fix on the unpacked `mmcif_files`~~ Done 2026-10-08 15:32: all files world-readable.
-- Inference on H200 and RTXP6000 (queued), reusing the existing data pipeline output.
+- ~~Inference on H200~~ Done.
+- Inference on RTXP6000 (compute capability 12.0; queued), reusing the existing data pipeline output.
 
 **After publishing:** update the TechWeb AlphaFold3 page; point `module help` MODEL WEIGHTS to it.
