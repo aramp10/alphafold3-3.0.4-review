@@ -72,3 +72,28 @@ Input: 2PV7 example from the 3.0.0 `examples/`.
 - Data pipeline on the installed module: job 7876543, exit 0, 33 min (8 cores), 4 PDB templates. `2PV7_data.json` identical (md5) to the earlier test copy's.
 - L40S inference on that output: job 7876544, exit 0, 123 s, top ranking score 0.910.
 - V100 inference: tested on a test copy with the same `.sif` and `run_alphafold.sh` (md5 matched).
+
+---
+
+## Update 2026-10-08: after the review meeting
+
+**Decisions:** publish after the edits and tests below. Model weights: each user downloads their own. 3.0.4 becomes the default. The unused `.sqsh` will be removed.
+
+**Edits made**
+
+| File | Change |
+|---|---|
+| `install/bin/run_alphafold.sh` | `--pdb_database_path` now points to the unpacked `/public_database/pdb_2022_09_28_mmcif_files/mmcif_files` instead of the `.tar`. |
+| `install/bin/run_alphafold.sh` | Final call simplified to a plain `scc-singularity run`; the `--scc-preview`/`eval` code is removed. Argument pre-quoting is kept, so paths with spaces still work. The wrapper now always exits 0 (`scc-singularity` behavior). |
+| `modulefile.lua`, `install/examples/af3_inference.qsub`, `test/runs/af3_inf.qsub` | Inference job: `-pe omp 4` → `-pe omp 8`. |
+| `test/test.qsub` | Test 4 expects 10 database entries (unpacked directory added). Test 5 checks the error message only, not the exit code. |
+| `notes.txt` | Wrapper description updated to match. |
+
+`test/test.qsub` after the edits: 5/5 passed (plain bash).
+
+**Still to do before publishing**
+- Make the unpacked `mmcif_files` readable by all users (currently group-only).
+- Data pipeline timing: unpacked vs `.tar` (`.tar` baseline for the template search step: 472.83 s).
+- `test/test.qsub` as a batch job; inference on L40S, V100, H200 and RTXP6000 with the new wrapper.
+
+**After publishing:** update the TechWeb AlphaFold3 page; point `module help` MODEL WEIGHTS to it.
