@@ -104,7 +104,7 @@ Input: 2PV7 example from the 3.0.0 `examples/`.
 - L40S inference on the unpacked output: ranking score 0.91 (same as 2026-10-05).
 
 **Still to do before publishing**
-- Permissions fix on the unpacked `mmcif_files` (in progress).
+- ~~Permissions fix on the unpacked `mmcif_files`~~ Done 2026-10-08 15:32: all files world-readable.
 - Inference on H200 and RTXP6000 (queued), reusing the existing data pipeline output.
 
 **After publishing:** update the TechWeb AlphaFold3 page; point `module help` MODEL WEIGHTS to it.
