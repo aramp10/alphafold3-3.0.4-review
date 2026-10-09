@@ -104,10 +104,12 @@ Input: 2PV7 example from the 3.0.0 `examples/`.
 - L40S inference on the unpacked output: ranking score 0.91 (same as 2026-10-05).
 - H200 inference on the existing data pipeline output: ranking score 0.91; inference 44 s (L40S: 85 s).
 - RTXP6000 (compute capability 12.0) inference on the same output: ranking score 0.91; inference 52 s.
+- V100 inference on the same output (rerun with the simplified wrapper): ranking score 0.91; inference 278 s. Log has the same caught tokamax "Not supported on Tesla V100" messages as 2026-10-05.
 
 **Still to do before publishing**
 - ~~Permissions fix on the unpacked `mmcif_files`~~ Done 2026-10-08 15:32: all files world-readable.
 - ~~Inference on H200~~ Done.
 - ~~Inference on RTXP6000~~ Done.
+- ~~V100 rerun with the simplified wrapper~~ Done.
 
 **After publishing:** update the TechWeb AlphaFold3 page; point `module help` MODEL WEIGHTS to it.
