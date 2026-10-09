@@ -116,19 +116,6 @@ Input: 2PV7 example from the 3.0.0 `examples/`.
 
 ---
 
-## GPU inference jobs
-
-2PV7 example, 1 seed, 1 GPU. Wall time from `qacct`; inference = "Running model inference with seed 1 took".
-
-| Date | Job | GPU | Cores | Wall time | Inference | Top ranking score |
-|---|---|---|---|---|---|---|
-| 10-05 | 7876254 | L40S | 4 | 1:59 | 84 s | 0.910 |
-| 10-05 | 7876544 | L40S | 4 | 2:03 | 87 s | 0.909 |
-| 10-08 | 7968636 | L40S | 8 | 1:58 | 85 s | 0.910 |
-| 10-08 | 7969098 | H200 | 8 | 1:19 | 44 s | 0.906 |
-| 10-08 | 7969099 | RTXP6000 | 8 | 1:27 | 52 s | 0.906 |
-| 10-08 | 7969988 | V100 | 8 | 5:27 | 278 s | 0.907 |
-
 ## Data pipeline jobs
 
 2PV7 example, 8 cores, CPU only. Wall time from `qacct`; step times from the log (chain A; chain B ~0.1 s).
@@ -142,3 +129,18 @@ Input: 2PV7 example from the 3.0.0 `examples/`.
 | 10-08 | 7968635 | `/share/pkg.8` | scc-wh2 | `.tar` | 35:47 | 1627 s | 509 s |
 
 Same `.sif` and databases in all runs; output `2PV7_data.json` identical (md5) across the `/share/pkg.8` runs.
+
+## GPU inference jobs
+
+2PV7 example, 1 seed, 1 GPU. Wall time from `qacct`; inference = "Running model inference with seed 1 took".
+
+| Date | Job | GPU | Cores | Wall time | Inference | Top ranking score |
+|---|---|---|---|---|---|---|
+| 10-05 | 7876254 | L40S | 4 | 1:59 | 84 s | 0.910 |
+| 10-05 | 7876544 | L40S | 4 | 2:03 | 87 s | 0.909 |
+| 10-08 | 7968636 | L40S | 8 | 1:58 | 85 s | 0.910 |
+| 10-08 | 7969098 | H200 | 8 | 1:19 | 44 s | 0.906 |
+| 10-08 | 7969099 | RTXP6000 | 8 | 1:27 | 52 s | 0.906 |
+| 10-08 | 7969988 | V100 | 8 | 5:27 | 278 s | 0.907 |
+
+**Both steps together:** about 50 min on average (data pipeline 48 min + GPU inference 2.4 min; means of the wall times above).
