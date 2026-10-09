@@ -113,3 +113,18 @@ Input: 2PV7 example from the 3.0.0 `examples/`.
 - ~~V100 rerun with the simplified wrapper~~ Done.
 
 **After publishing:** update the TechWeb AlphaFold3 page; point `module help` MODEL WEIGHTS to it.
+
+---
+
+## GPU inference jobs
+
+2PV7 example, 1 seed, 1 GPU. Wall time from `qacct`; inference = "Running model inference with seed 1 took".
+
+| Date | Job | GPU | Cores | Wall time | Inference | Top ranking score |
+|---|---|---|---|---|---|---|
+| 10-05 | 7876254 | L40S | 4 | 1:59 | 84 s | 0.910 |
+| 10-05 | 7876544 | L40S | 4 | 2:03 | 87 s | 0.909 |
+| 10-08 | 7968636 | L40S | 8 | 1:58 | 85 s | 0.910 |
+| 10-08 | 7969098 | H200 | 8 | 1:19 | 44 s | 0.906 |
+| 10-08 | 7969099 | RTXP6000 | 8 | 1:27 | 52 s | 0.906 |
+| 10-08 | 7969988 | V100 | 8 | 5:27 | 278 s | 0.907 |
