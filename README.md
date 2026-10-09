@@ -122,12 +122,12 @@ Input: 2PV7 example from the 3.0.0 `examples/`.
 
 | Date | Job | Install | Node | PDB source | Wall time | MSA step | Template step |
 |---|---|---|---|---|---|---|---|
-| 10&#8209;04 | 7868773 | test copy | scc-pf6 | `.tar` | 68:05 | 2731 s | 1341 s |
-| 10&#8209;04 | 7869138 | test copy* | scc-pf2 | `.tar` | 75:27 | 2904 s | 1611 s |
-| 10&#8209;05 | 7876543 | `/share/pkg.8` | scc-va3 | `.tar` | 32:57 | 1493 s | 473 s |
-| 10&#8209;08 | 7968634 | `/share/pkg.8` | scc-va1 | unpacked | 25:21 | 1497 s | 12 s |
-| 10&#8209;08 | 7968635 | `/share/pkg.8` | scc-wh2 | `.tar` | 35:47 | 1627 s | 509 s |
-| 10&#8209;09 | 7990957 | published, test account | scc-yf3 | unpacked | 19:53 | 1169 s | 14 s |
+| 10&#8209;04 | 7868773 | test copy | scc&#8209;pf6 | `.tar` | 68:05 | 2731 s | 1341 s |
+| 10&#8209;04 | 7869138 | test copy* | scc&#8209;pf2 | `.tar` | 75:27 | 2904 s | 1611 s |
+| 10&#8209;05 | 7876543 | `/share/pkg.8` | scc&#8209;va3 | `.tar` | 32:57 | 1493 s | 473 s |
+| 10&#8209;08 | 7968634 | `/share/pkg.8` | scc&#8209;va1 | unpacked | 25:21 | 1497 s | 12 s |
+| 10&#8209;08 | 7968635 | `/share/pkg.8` | scc&#8209;wh2 | `.tar` | 35:47 | 1627 s | 509 s |
+| 10&#8209;09 | 7990957 | test account | scc&#8209;yf3 | unpacked | 19:53 | 1169 s | 14 s |
 
 \* Run with `-l mem_per_core=8G`.
 
