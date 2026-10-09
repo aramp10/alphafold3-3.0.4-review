@@ -127,10 +127,11 @@ Input: 2PV7 example from the 3.0.0 `examples/`.
 | 10&#8209;05 | 7876543 | `/share/pkg.8` | scc-va3 | `.tar` | 32:57 | 1493 s | 473 s |
 | 10&#8209;08 | 7968634 | `/share/pkg.8` | scc-va1 | unpacked | 25:21 | 1497 s | 12 s |
 | 10&#8209;08 | 7968635 | `/share/pkg.8` | scc-wh2 | `.tar` | 35:47 | 1627 s | 509 s |
+| 10&#8209;09 | 7990957 | published, test account | scc-yf3 | unpacked | 19:53 | 1169 s | 14 s |
 
 \* Run with `-l mem_per_core=8G`.
 
-Same `.sif` and databases in all runs; output `2PV7_data.json` identical (md5) across the `/share/pkg.8` runs.
+Same `.sif` and databases in all runs; output `2PV7_data.json` identical (md5) across the `/share/pkg.8` and test-account runs. scc-pf nodes have 1 Gbit/s Ethernet, the others 10 Gbit/s; the database search is mostly I/O-bound.
 
 ## GPU inference jobs
 
@@ -144,5 +145,8 @@ Same `.sif` and databases in all runs; output `2PV7_data.json` identical (md5) a
 | 10&#8209;08 | 7969098 | H200 | 8 | 1:19 | 44 s | 0.906 |
 | 10&#8209;08 | 7969099 | RTXP6000 | 8 | 1:27 | 52 s | 0.906 |
 | 10&#8209;08 | 7969988 | V100 | 8 | 5:27 | 278 s | 0.907 |
+| 10&#8209;09 | 7991085 | P100 (test account) | 8 | 10:15 | 568 s | 0.910 |
 
-**Both steps together:** about 50 min on average (data pipeline 48 min + GPU inference 2.4 min; means of the wall times above).
+V100 and P100 (compute capability < 8.0) run slower; the model uses hardware features of compute capability 8.0+ GPUs. Their logs have 31 caught tokamax "Not supported" tracebacks; the runs complete.
+
+**Both steps together:** about 46 min on average (data pipeline 43 min + GPU inference 3.5 min; means of the wall times above).
