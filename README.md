@@ -122,11 +122,13 @@ Input: 2PV7 example from the 3.0.0 `examples/`.
 
 | Date | Job | Install | Node | PDB source | Wall time | MSA step | Template step |
 |---|---|---|---|---|---|---|---|
-| 10-04 | 7868773 | test copy | scc-pf6 | `.tar` | 68:05 | 2731 s | 1341 s |
-| 10-04 | 7869138 | test copy (`mem_per_core=8G`) | scc-pf2 | `.tar` | 75:27 | 2904 s | 1611 s |
-| 10-05 | 7876543 | `/share/pkg.8` | scc-va3 | `.tar` | 32:57 | 1493 s | 473 s |
-| 10-08 | 7968634 | `/share/pkg.8` | scc-va1 | unpacked | 25:21 | 1497 s | 12 s |
-| 10-08 | 7968635 | `/share/pkg.8` | scc-wh2 | `.tar` | 35:47 | 1627 s | 509 s |
+| 10&#8209;04 | 7868773 | test copy | scc-pf6 | `.tar` | 68:05 | 2731 s | 1341 s |
+| 10&#8209;04 | 7869138 | test copy* | scc-pf2 | `.tar` | 75:27 | 2904 s | 1611 s |
+| 10&#8209;05 | 7876543 | `/share/pkg.8` | scc-va3 | `.tar` | 32:57 | 1493 s | 473 s |
+| 10&#8209;08 | 7968634 | `/share/pkg.8` | scc-va1 | unpacked | 25:21 | 1497 s | 12 s |
+| 10&#8209;08 | 7968635 | `/share/pkg.8` | scc-wh2 | `.tar` | 35:47 | 1627 s | 509 s |
+
+\* Run with `-l mem_per_core=8G`.
 
 Same `.sif` and databases in all runs; output `2PV7_data.json` identical (md5) across the `/share/pkg.8` runs.
 
@@ -136,11 +138,11 @@ Same `.sif` and databases in all runs; output `2PV7_data.json` identical (md5) a
 
 | Date | Job | GPU | Cores | Wall time | Inference | Top ranking score |
 |---|---|---|---|---|---|---|
-| 10-05 | 7876254 | L40S | 4 | 1:59 | 84 s | 0.910 |
-| 10-05 | 7876544 | L40S | 4 | 2:03 | 87 s | 0.909 |
-| 10-08 | 7968636 | L40S | 8 | 1:58 | 85 s | 0.910 |
-| 10-08 | 7969098 | H200 | 8 | 1:19 | 44 s | 0.906 |
-| 10-08 | 7969099 | RTXP6000 | 8 | 1:27 | 52 s | 0.906 |
-| 10-08 | 7969988 | V100 | 8 | 5:27 | 278 s | 0.907 |
+| 10&#8209;05 | 7876254 | L40S | 4 | 1:59 | 84 s | 0.910 |
+| 10&#8209;05 | 7876544 | L40S | 4 | 2:03 | 87 s | 0.909 |
+| 10&#8209;08 | 7968636 | L40S | 8 | 1:58 | 85 s | 0.910 |
+| 10&#8209;08 | 7969098 | H200 | 8 | 1:19 | 44 s | 0.906 |
+| 10&#8209;08 | 7969099 | RTXP6000 | 8 | 1:27 | 52 s | 0.906 |
+| 10&#8209;08 | 7969988 | V100 | 8 | 5:27 | 278 s | 0.907 |
 
 **Both steps together:** about 50 min on average (data pipeline 48 min + GPU inference 2.4 min; means of the wall times above).
